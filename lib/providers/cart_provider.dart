@@ -42,4 +42,18 @@ class Cart with ChangeNotifier {
   CartItem getItemByIndex(int index) {
     return _items[index];
   }
+
+  List<CartItem> getItems() {
+    return [..._items];
+  }
+
+  void removeSingleItem() {
+    _items.removeLast();
+    notifyListeners();
+  }
+
+  void clear() {
+    _items.clear();
+    notifyListeners();
+  }
 }

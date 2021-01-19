@@ -7,32 +7,36 @@ class BadgeIcon extends StatelessWidget {
   BadgeIcon({this.child, this.quantity});
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        child,
-        Positioned(
-          child: Container(
-            width: 30,
-            height: 30,
-            padding: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Theme.of(context).accentColor),
-            constraints: BoxConstraints(
-              maxHeight: 16,
-              minWidth: 16,
-            ),
-            child: Text(
-              this.quantity,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 10,
+    return Container(
+      width: 30,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          child,
+          Positioned(
+            child: Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Theme.of(context).accentColor,
+              ),
+              constraints: BoxConstraints(
+                maxHeight: 20,
+                minWidth: 20,
+              ),
+              child: Text(
+                this.quantity,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
               ),
             ),
-          ),
-          top: 8,
-          right: 8,
-        )
-      ],
+            top: 4,
+            right: -2,
+          )
+        ],
+      ),
     );
   }
 }
